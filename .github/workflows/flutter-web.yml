@@ -30,6 +30,9 @@ jobs:
       - name: Generate Flutter platform files
         run: flutter create . --platforms=web
 
+      - name: Remove generated sample test
+        run: rm -f test/widget_test.dart
+
       - name: Get dependencies
         run: flutter pub get
 
