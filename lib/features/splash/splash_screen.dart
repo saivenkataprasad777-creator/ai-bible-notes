@@ -115,16 +115,20 @@ class _BiblePenMark extends StatelessWidget {
           ),
         ],
       ),
-      child: const Stack(
+      child: Stack(
         alignment: Alignment.center,
         children: [
-          Icon(Icons.menu_book_rounded, size: 58, color: AppColors.gold),
+          const Icon(Icons.menu_book_rounded, size: 58, color: AppColors.gold),
           Positioned(
             right: 19,
             bottom: 24,
             child: Transform.rotate(
               angle: -0.55,
-              child: Icon(Icons.edit_rounded, size: 30, color: AppColors.warmWhite),
+              child: const Icon(
+                Icons.edit_rounded,
+                size: 30,
+                color: AppColors.warmWhite,
+              ),
             ),
           ),
         ],
