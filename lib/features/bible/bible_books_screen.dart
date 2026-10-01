@@ -32,7 +32,7 @@ class _BibleBooksScreenState extends State<BibleBooksScreen> {
                 context: context,
                 delegate: _BookSearchDelegate(bibleBooks),
               );
-              if (query != null) setState(() => _query = query);
+              if (query != null && query.isNotEmpty) setState(() => _query = query);
             },
             icon: const Icon(Icons.search_rounded),
           ),
@@ -145,12 +145,12 @@ class _BookSearchDelegate extends SearchDelegate<String> {
       );
 
   @override
-  Widget buildResults(BuildContext context) => _results();
+  Widget buildResults(BuildContext context) => _results(context);
 
   @override
-  Widget buildSuggestions(BuildContext context) => _results();
+  Widget buildSuggestions(BuildContext context) => _results(context);
 
-  Widget _results() {
+  Widget _results(BuildContext context) {
     final results = books.where((book) => book.name.toLowerCase().contains(query.toLowerCase())).toList();
     return ListView.builder(
       itemCount: results.length,
