@@ -35,9 +35,9 @@ class _SplashScreenState extends State<SplashScreen>
       if (!mounted) return;
       Navigator.of(context).pushReplacement(
         PageRouteBuilder<void>(
-          pageBuilder: (_, __, ___) => const HomeScreen(),
+          pageBuilder: (pageContext, animation, secondaryAnimation) => const HomeScreen(),
           transitionDuration: const Duration(milliseconds: 550),
-          transitionsBuilder: (_, animation, __, child) {
+          transitionsBuilder: (pageContext, animation, secondaryAnimation, child) {
             return FadeTransition(opacity: animation, child: child);
           },
         ),
@@ -64,9 +64,9 @@ class _SplashScreenState extends State<SplashScreen>
               child: ScaleTransition(scale: _scale, child: child),
             );
           },
-          child: const Column(
+          child: Column(
             mainAxisSize: MainAxisSize.min,
-            children: [
+            children: const [
               _BiblePenMark(),
               SizedBox(height: 28),
               Text(
